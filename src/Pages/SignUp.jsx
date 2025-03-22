@@ -9,35 +9,23 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  // const handleSignup = (e) => {
-  //   e.preventDefault(); // Prevent page reload
-  //   console.log("Name:", name);
-  //   console.log("Email:", email);
-  //   console.log("Password:", password);
-  //   //  setMessage("Signup Successful!"); // Dummy success message
-  // };
   const handleSignup = async (e) => {
-    e.preventDefault(); // Prevent page reload
+    // preventDefault() stops the reload, so you can handle submission using JavaScript instead.
+    e.preventDefault();
 
     try {
       const response = await API.post("/signup", { name, email, password });
-
-      // ✅ Show success message in an alert
       alert(response.data.message);
-
-      // ✅ Clear input fields
       setName("");
       setEmail("");
       setPassword("");
-
-      // ✅ Redirect to Login Page
       window.location.href = "/login"; // Or use React Router
     } catch (error) {
       alert("Signup failed! Try again."); // Show error alert
       console.error(error);
     }
   };
-
+  //A form is a box where users enter information (like name, email, password) and send it to the server.
   return (
     <div className="auth-container">
       <h2>Signup</h2>

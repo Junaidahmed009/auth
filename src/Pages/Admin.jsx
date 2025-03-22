@@ -1,10 +1,11 @@
 import React from "react";
+import UsersList from "./userList";
 
 const Admin = () => {
   return (
     <div>
       <h1>Admin Dashboard</h1>
-      <p>Welcome, Admin! You have full access to manage users and data.</p>
+      <UsersList />
     </div>
   );
 };
